@@ -2,11 +2,12 @@ package figures;
 
 import java.awt.*;
 import java.awt.geom.Ellipse2D;
-import java.awt.geom.Ellipse2D.Double;
+import java.util.Random;
 
 public class Ellipse {
     int x, y;
     int w, h;
+    float r,g,b;
 
     public Ellipse (int x, int y, int w, int h) {
         this.x = x;
@@ -22,6 +23,18 @@ public class Ellipse {
 
     public void paint (Graphics g) {
         Graphics2D g2d = (Graphics2D) g;
+        randColor();
+        g2d.setColor(new Color(this.r, this.g, this.b));
+        g2d.fill(new Ellipse2D.Double(this.x,this.y, this.w,this.h));
+        randColor();
+        g2d.setColor(new Color(this.r, this.g, this.b));
         g2d.draw(new Ellipse2D.Double(this.x,this.y, this.w,this.h));
+    }
+
+    void randColor(){
+        Random rand = new Random();
+        this.r=rand.nextFloat();
+        this.g=rand.nextFloat();
+        this.b=rand.nextFloat();
     }
 }
