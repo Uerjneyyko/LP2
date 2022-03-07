@@ -1,0 +1,24 @@
+package figures;
+
+import java.awt.*;
+
+public class Sqr {
+    int x, y;
+    int s;
+
+    public Sqr (int x, int y, int s) {
+        this.x = x;
+        this.y = y;
+        this.s = s;
+    }
+
+    public void print () {
+        System.out.format("Quadrado de tamanho (%d) na posicao (%d,%d).\n",
+            this.s, this.x, this.y);
+    }
+
+    public void paint (Graphics g) {
+        Graphics2D g2d = (Graphics2D) g;
+        g2d.drawRect(this.x,this.y, this.s,this.s);
+    }
+}
